@@ -1,0 +1,73 @@
+{{ define "main" }}
+
+<div class="single_container content_area">
+  <div class="single_main_container">
+    <main class="article_main card">
+      <article class="article_container">
+        <header class="article_header">
+          <h1 class="article_title">{{ .Title }}</h1>
+        </header>
+        <section class="article_body">
+          {{ .Content }}
+        </section>
+      </article>
+    </main>
+
+    <aside class="article_side">
+      <dl class="article_meta card">
+        <div class="article_meta_item timestamp">
+          <dt class="article_meta_key">Published</dt>
+          <dd class="article_meta_value">
+            <time class="published_date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02"  }}</time>
+          </dd>
+        </div>
+
+        {{ if ne .Date .Lastmod }}
+        <div class="article_meta_item timestamp">
+          <dt class="article_meta_key">Updated</dt>
+          <dd class="article_meta_value">
+            <time class="modified_date" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">Updated: {{ .Lastmod.Format "2006-01-02"  }}</time>
+          </dd>
+        </div>
+        {{ end }}
+
+        {{ with .GetTerms "categories" }}
+        <div class="article_meta_item taxonomy">
+          <dt class="article_meta_key">Categolies</dt>
+          <dd class="article_meta_value">
+            <ul class="taxonomy_list">
+            {{ range . }}
+              <li><a class="taxonomy_button" href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+            {{ end }}
+            </ul>
+          </dd>
+        </div>
+        {{ end }}
+
+        {{ with .GetTerms "tags" }}
+        <div class="article_meta_item taxonomy">
+          <dt class="article_meta_key">Tags</dt>
+          <dd class="article_meta_value">
+            <ul class="taxonomy_list">
+            {{ range . }}
+              <li><a class="taxonomy_button" href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+            {{ end }}
+            </ul>
+          </dd>
+        </div>
+        {{ end }}
+      </dl>
+
+      {{ if gt ( len .TableOfContents ) 32 }}
+      <div class="article_toc card">
+        <div class="toc_header">Table of contents</div>
+        <div class="toc_body">
+            {{ .TableOfContents }}
+        </div>
+      </div>
+      {{ end }}
+    </aside>
+  </div>
+</div>
+
+{{ end }}

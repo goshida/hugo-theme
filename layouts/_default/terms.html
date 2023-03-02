@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+<div class="terms_container content_area">
+  <div class="terms_main_container">
+    <main class="terms_main card">
+      <header class="term_header">
+        <h1 class="term_title">{{ .Title }}</h1>
+      </header>
+      <section class="term_body">
+        {{ .Content }}
+      </section>
+
+      <ul class="term_list">
+        {{- $plural := .Data.Plural }}
+        {{- range $index, $term := .Data.Terms.Alphabetical }}
+        <li class="term_list_item">
+          <a class="term_name"href="{{ $.Site.LanguagePrefix }}/{{ $plural }}/{{ $term.Name | urlize }}">{{ $term.Name }}</a> ({{ $term.Count }})
+        </li>
+        {{- end }}
+      </ul>
+      {{ template "_internal/pagination.html" . }}
+    </main>
+  </div>
+</div>
+
+{{ end }}

@@ -1,0 +1,27 @@
+{{ define "main" }}
+
+<div class="homepage_container content_area">
+  <div class="homepage_main_container">
+    <aside class="recent_main card">
+      <header class="recent_header">
+        <h1 class="list_title">Recent</h1>
+      </header>
+      <section class="list_body">
+        {{ .Content }}
+      </section>
+
+      <ul class="mini_page_list">
+        {{ range first 5 .Site.RegularPages.ByDate.Reverse }}
+        <li class="mini_page_list_item">
+          <div class="page_timestamp">
+            <time class="published_date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02"  }}</time>
+          </div>
+          <a class="page_title" href="{{ .Permalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </aside>
+  </div>
+</div>
+
+{{ end }}

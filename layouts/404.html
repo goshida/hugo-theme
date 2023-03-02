@@ -1,0 +1,21 @@
+{{ define "main"}}
+
+<div class="notfound_container content_area">
+  <article class="notfound_main card">
+    <header class="notfound_header">
+      <h1 class="notfound_title">404. Page not found</h1>
+    </header>
+    <section class="notfound_body">
+      The Page you are looking for has been deleted, moved, or never existed.
+      Please try the following:
+
+      <ul>
+        <li>Check the URL for errors.</li>
+        <li><a href="{{ "" | relURL }}">Return to homepage</a> and try again.</li>
+      </ul>
+
+    </section>
+  </article>
+</div>
+
+{{ end }}
