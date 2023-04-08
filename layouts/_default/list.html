@@ -24,7 +24,7 @@
             {{ with .GetTerms "categories" }}
             <ul class="taxonomy_list has_icon_categories">
               {{ range . }}
-              <li>
+              <li class="taxonomy_list_item">
                 <a class="taxonomy_button" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
               </li>
               {{ end }}
@@ -33,7 +33,7 @@
             {{ with .GetTerms "tags" }}
             <ul class="taxonomy_list has_icon_tags">
               {{ range . }}
-              <li>
+              <li class="taxonomy_list_item">
                 <a class="taxonomy_button" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
               </li>
               {{ end }}

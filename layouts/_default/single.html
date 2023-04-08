@@ -37,7 +37,9 @@
           <dd class="article_meta_value">
             <ul class="taxonomy_list">
             {{ range . }}
-              <li><a class="taxonomy_button" href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+              <li class="taxonomy_list_item">
+                <a class="taxonomy_button" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+              </li>
             {{ end }}
             </ul>
           </dd>
@@ -50,7 +52,9 @@
           <dd class="article_meta_value">
             <ul class="taxonomy_list">
             {{ range . }}
-              <li><a class="taxonomy_button" href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+              <li class="taxonomy_list_item">
+                <a class="taxonomy_button" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+              </li>
             {{ end }}
             </ul>
           </dd>

@@ -122,8 +122,6 @@ summary {
 }
 
 .taxonomy_list {
-  display: flex;
-  flex-direction: row;
   padding-inline-start: 0px;
   list-style: none;
 
@@ -132,9 +130,13 @@ summary {
   font-size: 0.9em;
 }
 
+.taxonomy_list_item {
+  display: inline-block;
+  margin: 6px 2px;
+}
+
 .taxonomy_button {
-  margin: 0px 4px;
-  padding: 4px 8px;
+  padding: 2px 8px;
   border: solid 1px #C0C0C0;
   border-radius: 6px;
   color: var(--taxonomy-button_color);
