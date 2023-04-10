@@ -1,5 +1,9 @@
 /* Color definition */
 
+body {
+  --body_font-family: sans-serif;
+}
+
 .site_header_container {
   --header_background: #404040;
   --site-logo_color: #FFFFFF;
@@ -40,6 +44,7 @@
   --th_background-color: #F0F0F0;
   --pre_default-color: #FFFFFF;
   --pre_default-background-color: #202020;
+  --pre_font-family: monospace;
   --summary_hover-background-color: #F0F0F0;
   --figcaption_color: #808080;
 }
@@ -51,6 +56,7 @@ html {
 body {
   overflow-y: scroll;
   margin: 0px;
+  font-family: var(--body_font-family);
 }
 
 .article_main {
@@ -108,8 +114,8 @@ code {
   padding: 2px 4px;
   border: solid 1px #A0A0A0;
   border-radius: 4px;
-  font-size: 1.2em;
   background-color: var(--code_background-color);
+  font-family: inherit;
 }
 
 a:link {
@@ -154,11 +160,13 @@ th {
 }
 
 pre {
+  overflow-x: auto;
   margin-inline-start: 0.5em;
   margin-inline-end: 0.5em;
   padding: 1em;
   border-radius: 4px;
   line-height: 1.2em;
+  font-family: var(--pre_font-family);
   font-size: 1.1em;
 
   color: var(--pre_default-color);
@@ -347,7 +355,7 @@ html, body, .site_container {
 }
 
 .navigation_item:last-of-type {
-  border-left: none;
+  border-right: none;
 }
 
 .navigation_item > a {
