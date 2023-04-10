@@ -527,6 +527,21 @@ html, body, .site_container {
   color: #606060;
 }
 
+.page_timestamps > .published_date {
+}
+
+.page_timestamps > .modified_date {
+  margin-left: 1em;
+}
+
+.page_timestamps > .modified_date::before {
+  content: "( Updated: ";
+}
+
+.page_timestamps > .modified_date::after {
+  content: " )";
+}
+
 .page_list_item > .page_title {
   margin: 4px 4px;
   font-size: 1.2em;

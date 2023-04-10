@@ -26,7 +26,7 @@
         <div class="article_meta_item timestamp">
           <dt class="article_meta_key">Updated</dt>
           <dd class="article_meta_value">
-            <time class="modified_date" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">Updated: {{ .Lastmod.Format "2006-01-02"  }}</time>
+            <time class="modified_date" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Lastmod.Format "2006-01-02"  }}</time>
           </dd>
         </div>
         {{ end }}
