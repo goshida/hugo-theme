@@ -118,6 +118,10 @@ code {
   font-family: inherit;
 }
 
+a {
+  word-break: break-word;
+}
+
 a:link {
   text-decoration: none;
   color: var(--a_inactive-color);
@@ -145,6 +149,8 @@ blockquote {
 }
 
 table {
+  display: block;
+  overflow-x: auto;
   margin: 1em;
   padding: 0.5em;
   border-collapse: collapse;
@@ -381,6 +387,7 @@ html, body, .site_container {
 
 .article_main {
   flex: 1 1 auto;
+  max-width: calc( 100% - 56px - 320px);
 }
 
 .article_header {
