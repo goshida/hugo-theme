@@ -32,6 +32,7 @@ body {
   --toc_hover-background: #F0F0F0;
   --toc_hover-color: #000000;
 
+  --page-title_color: #000000;
   --pagination-button_active-background: #404040;
   --pagination-button_active-color: #FFFFFF;
   --pagination-button_inactive-background: #F0F0F0;
@@ -565,7 +566,8 @@ html, body, .site_container {
 .page_list_item > .page_title {
   margin: 4px 4px;
   font-size: 1.2em;
-  color: #000000;
+  font-weight: 700;
+  color: var(--page-title_color);
 }
 
 .page_list_item > .page_taxonomies {
@@ -585,11 +587,11 @@ html, body, .site_container {
 }
 
 .page_list_item > .page_summary {
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
-.page_list_item > .page_summary > p{
-  margin: 12px 8px;
+.page_list_item > .page_summary > p {
+  margin: 4px 12px;
 }
 
 .pagination {
