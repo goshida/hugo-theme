@@ -274,6 +274,30 @@ figcaption {
   background: var(--taxonomy-button_hover-background);
 }
 
+.has_icon_before::before {
+  display: inline-block;
+  content: "";
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+}
+
+.icon_calendar::before {
+  background-image: url("/images/icon_calendar.svg");
+}
+
+.icon_reload::before {
+  background-image: url("/images/icon_reload.svg");
+}
+
+.icon_category::before {
+  background-image: url("/images/icon_category.svg");
+}
+
+.icon_tag::before {
+  background-image: url("/images/icon_tag.svg");
+}
+
 
 /* Global */
 
@@ -534,19 +558,8 @@ html, body, .site_container {
   color: #606060;
 }
 
-.page_timestamps > .published_date {
-}
-
-.page_timestamps > .modified_date {
-  margin-left: 1em;
-}
-
-.page_timestamps > .modified_date::before {
-  content: "( Updated: ";
-}
-
-.page_timestamps > .modified_date::after {
-  content: " )";
+.page_timestamps > time {
+  margin-right: 1em;
 }
 
 .page_list_item > .page_title {
@@ -568,14 +581,7 @@ html, body, .site_container {
 
 .page_list_item > .page_taxonomies .taxonomy_list:last-of-type::after {
   content: none;
-}
-
-.page_list_item > .page_taxonomies > .taxonomy_list.has_icon_categories::before {
-  content: "categories:";
-}
-
-.page_list_item > .page_taxonomies > .taxonomy_list.has_icon_tags::before {
-  content: "tags:";
+  margin: 0px 0px;
 }
 
 .page_list_item > .page_summary {

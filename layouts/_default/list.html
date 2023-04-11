@@ -14,15 +14,15 @@
         {{ range .Pages }}
         <li class="page_list_item">
           <div class="page_timestamps">
-            <time class="published_date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02"  }}</time>
+            <time class="has_icon_before icon_calendar" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02" }}</time>
             {{ if ne .Date .Lastmod }}
-              <time class="modified_date" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Lastmod.Format "2006-01-02"  }}</time>
+            <time class="has_icon_before icon_reload" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Lastmod.Format "2006-01-02" }}</time>
             {{ end }}
           </div>
           <a class="page_title" href="{{ .Permalink }}">{{ .Title }}</a>
           <div class="page_taxonomies">
             {{ with .GetTerms "categories" }}
-            <ul class="taxonomy_list has_icon_categories">
+            <ul class="taxonomy_list has_icon_before icon_category">
               {{ range . }}
               <li class="taxonomy_list_item">
                 <a class="taxonomy_button" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
@@ -31,7 +31,7 @@
             </ul>
             {{ end }}
             {{ with .GetTerms "tags" }}
-            <ul class="taxonomy_list has_icon_tags">
+            <ul class="taxonomy_list has_icon_before icon_tag">
               {{ range . }}
               <li class="taxonomy_list_item">
                 <a class="taxonomy_button" href="{{ .Permalink }}">{{ .LinkTitle }}</a>

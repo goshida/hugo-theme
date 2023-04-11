@@ -16,24 +16,24 @@
     <aside class="article_side">
       <dl class="article_meta card">
         <div class="article_meta_item timestamp">
-          <dt class="article_meta_key">Published</dt>
+          <dt class="article_meta_key has_icon_before icon_calendar">Published</dt>
           <dd class="article_meta_value">
-            <time class="published_date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02"  }}</time>
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02" }}</time>
           </dd>
         </div>
 
         {{ if ne .Date .Lastmod }}
         <div class="article_meta_item timestamp">
-          <dt class="article_meta_key">Updated</dt>
+          <dt class="article_meta_key has_icon_before icon_reload">Modified</dt>
           <dd class="article_meta_value">
-            <time class="modified_date" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Lastmod.Format "2006-01-02"  }}</time>
+            <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Lastmod.Format "2006-01-02" }}</time>
           </dd>
         </div>
         {{ end }}
 
         {{ with .GetTerms "categories" }}
         <div class="article_meta_item taxonomy">
-          <dt class="article_meta_key">Categolies</dt>
+          <dt class="article_meta_key has_icon_before icon_category">Categolies</dt>
           <dd class="article_meta_value">
             <ul class="taxonomy_list">
             {{ range . }}
@@ -48,7 +48,7 @@
 
         {{ with .GetTerms "tags" }}
         <div class="article_meta_item taxonomy">
-          <dt class="article_meta_key">Tags</dt>
+          <dt class="article_meta_key has_icon_before icon_tag">Tags</dt>
           <dd class="article_meta_value">
             <ul class="taxonomy_list">
             {{ range . }}
