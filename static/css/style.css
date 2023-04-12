@@ -1,7 +1,9 @@
-/* Color definition */
+/* Variables definition */
 
-body {
+.site_container {
   --body_font-family: sans-serif;
+
+  --container_shadow: 0px 0px 8px rgba(0, 0, 0, 0.6);
 }
 
 .site_header_container {
@@ -9,12 +11,6 @@ body {
   --site-logo_color: #FFFFFF;
   --site-tagline_color: #A0A0A0;
   --site-navigation_color: #FFFFFF;
-}
-
-.site_footer_container {
-  --footer_background: #404040;
-  --footer-text_color: #D0D0D0;
-  --footer-link_color: #FFFFFF;
 }
 
 .site_main_container {
@@ -32,7 +28,8 @@ body {
   --toc_hover-background: #F0F0F0;
   --toc_hover-color: #000000;
 
-  --page-title_color: #000000;
+  --page-list-timestamp_color: #606060;
+  --page-list-title_color: #000000;
   --pagination-button_active-background: #404040;
   --pagination-button_active-color: #FFFFFF;
   --pagination-button_inactive-background: #F0F0F0;
@@ -50,6 +47,15 @@ body {
   --figcaption_color: #808080;
 }
 
+.site_footer_container {
+  --footer_background: #404040;
+  --footer-text_color: #D0D0D0;
+  --footer-link_color: #FFFFFF;
+}
+
+
+/* Tag ( Mainly for article body ) */
+
 html {
   scroll-behavior: smooth;
 }
@@ -58,10 +64,6 @@ body {
   overflow-y: scroll;
   margin: 0px;
   font-family: var(--body_font-family);
-}
-
-.article_main {
-  line-height: 1.5em;
 }
 
 h1 {
@@ -239,6 +241,46 @@ figcaption {
 }
 
 
+/* Global */
+
+html, body, .site_container {
+  height: 100%;
+}
+
+.site_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.site_header_container {
+  flex: none;
+  z-index: 1;
+}
+
+.site_main_container {
+  flex: 1 0 auto;
+  z-index: 0;
+  background: var(--main_background);
+}
+
+.site_footer_container {
+  flex: none;
+  z-index: 1;
+}
+
+.content_area {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sub_content_area {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 /* Component */
 
 .card {
@@ -246,7 +288,7 @@ figcaption {
   margin: 12px 12px;
   padding: 16px 16px;
   border-radius: 4px;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--container_shadow);
   background: var(--card_background);
 }
 
@@ -300,49 +342,10 @@ figcaption {
 }
 
 
-/* Global */
-
-html, body, .site_container {
-  height: 100%;
-}
-
-.site_container {
-  display: flex;
-  flex-direction: column;
-}
-
-.site_header_container {
-  flex: none;
-  z-index: 1;
-}
-
-.site_main_container {
-  flex: 1 0 auto;
-  z-index: 0;
-  background: var(--main_background);
-}
-
-.site_footer_container {
-  flex: none;
-  z-index: 1;
-}
-
-.content_area {
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.sub_content_area {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 /* Header */
 
 .site_header_container {
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--container_shadow);
   background: var(--header_background);
 }
 
@@ -374,6 +377,7 @@ html, body, .site_container {
 
 .navigation_list {
   display: flex;
+  flex-direction: row;
   justify-content: start;
   margin: 4px;
   padding: 4px;
@@ -520,6 +524,7 @@ html, body, .site_container {
 .list_main_container {
   flex: 1 1 auto;
   display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 
@@ -567,7 +572,7 @@ html, body, .site_container {
   margin: 4px 4px;
   font-size: 1.2em;
   font-weight: 700;
-  color: var(--page-title_color);
+  color: var(--page-list-title_color);
 }
 
 .page_list_item > .page_taxonomies {
@@ -648,6 +653,7 @@ html, body, .site_container {
 .homepage_main_container {
   flex: 1 1 auto;
   display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 
@@ -683,7 +689,7 @@ html, body, .site_container {
   flex: 0 0 8em;
   margin: 2px 2px;
   font-size: 0.9em;
-  color: #606060;
+  color: var(--page-list-timestamp_color);
 }
 
 .mini_page_list_item > .page_title {
@@ -703,6 +709,7 @@ html, body, .site_container {
 .terms_main_container {
   flex: 1 1 auto;
   display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 
@@ -710,9 +717,17 @@ html, body, .site_container {
   flex: 1 1 auto;
 }
 
+
 /* 404 Page */
 
 .notfound_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.notfound_main_container {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -735,7 +750,7 @@ html, body, .site_container {
 /* Footer */
 
 .site_footer_container {
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--container_shadow);
   background: var(--footer_background);
 }
 
