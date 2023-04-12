@@ -11,7 +11,8 @@
       </section>
 
       <ul class="page_list">
-        {{ range .Pages }}
+        {{ $paginator := .Paginate .Pages }}
+        {{ range $paginator.Pages }}
         <li class="page_list_item">
           <div class="page_timestamps">
             <time class="has_icon_before icon_calendar" itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02"  }}</time>
