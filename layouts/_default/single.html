@@ -5,7 +5,9 @@
     <main class="article_main card">
       <article class="article_container">
         <header class="article_header">
-          <h1 class="article_title">{{ .Title }}</h1>
+          <h1 class="article_title">
+            {{ .Title }}
+          </h1>
         </header>
         <section class="article_body">
           {{ .Content }}
@@ -14,59 +16,86 @@
     </main>
 
     <aside class="article_side">
-      <dl class="article_meta card">
-        <div class="article_meta_item timestamp">
-          <dt class="article_meta_key has_icon_before icon_calendar">Published</dt>
-          <dd class="article_meta_value">
-            <time class="published_date" itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02"  }}</time>
-          </dd>
-        </div>
+      <div class="article_meta_container card">
+        <dl class="article_meta">
+          <div class="article_meta_item title">
+            <dt class="article_meta_key">
+              <span>Title</span>
+            </dt>
+            <dd class="article_meta_value">
+              {{ .Title }}
+            </dd>
+          </div>
 
-        {{ if ne .Date .Lastmod }}
-        <div class="article_meta_item timestamp">
-          <dt class="article_meta_key has_icon_before icon_reload">Modified</dt>
-          <dd class="article_meta_value">
-            <time class="modified_date" itemprop="dateModified" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Lastmod.Format "2006-01-02"  }}</time>
-          </dd>
-        </div>
-        {{ end }}
+          <div class="article_meta_group timestamp">
+            <div class="article_meta_item timestamp">
+              <dt class="article_meta_key has_icon_before icon_calendar">
+                <span>Published</span>
+              </dt>
+              <dd class="article_meta_value">
+                <time class="published_date" itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02"  }}</time>
+              </dd>
+            </div>
 
-        {{ with .GetTerms "categories" }}
-        <div class="article_meta_item taxonomy">
-          <dt class="article_meta_key has_icon_before icon_category">Categolies</dt>
-          <dd class="article_meta_value">
-            <ul class="taxonomy_list">
-            {{ range . }}
-              <li class="taxonomy_list_item">
-                <a class="taxonomy_button" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
-              </li>
+            {{ if ne .Date .Lastmod }}
+            <div class="article_meta_item timestamp">
+              <dt class="article_meta_key has_icon_before icon_reload">
+                <span>Modified</span>
+              </dt>
+              <dd class="article_meta_value">
+                <time class="modified_date" itemprop="dateModified" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Lastmod.Format "2006-01-02"  }}</time>
+              </dd>
+            </div>
             {{ end }}
-            </ul>
-          </dd>
-        </div>
-        {{ end }}
+          </div>
 
-        {{ with .GetTerms "tags" }}
-        <div class="article_meta_item taxonomy">
-          <dt class="article_meta_key has_icon_before icon_tag">Tags</dt>
-          <dd class="article_meta_value">
-            <ul class="taxonomy_list">
-            {{ range . }}
-              <li class="taxonomy_list_item">
-                <a class="taxonomy_button" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
-              </li>
+          {{ if gt ( .GetTerms "" ) 0 }}
+          <div class="article_meta_group taxonomy">
+            {{ with .GetTerms "categories" }}
+            <div class="article_meta_item taxonomy">
+              <dt class="article_meta_key has_icon_before icon_category">
+                <span>Categolies</span>
+              </dt>
+              <dd class="article_meta_value">
+                <ul class="taxonomy_list">
+                {{ range . }}
+                  <li class="taxonomy_list_item">
+                    <a class="taxonomy_button" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+                  </li>
+                {{ end }}
+                </ul>
+              </dd>
+            </div>
             {{ end }}
-            </ul>
-          </dd>
-        </div>
-        {{ end }}
-      </dl>
+
+            {{ with .GetTerms "tags" }}
+            <div class="article_meta_item taxonomy">
+              <dt class="article_meta_key has_icon_before icon_tag">
+                <span>Tags</span>
+              </dt>
+              <dd class="article_meta_value">
+                <ul class="taxonomy_list">
+                {{ range . }}
+                  <li class="taxonomy_list_item">
+                    <a class="taxonomy_button" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+                  </li>
+                {{ end }}
+                </ul>
+              </dd>
+            </div>
+            {{ end }}
+          </div>
+          {{ end }}
+        </dl>
+      </div>
 
       {{ if gt ( len .TableOfContents ) 32 }}
-      <div class="article_toc card">
-        <div class="toc_header">Table of contents</div>
-        <div class="toc_body">
-            {{ .TableOfContents }}
+      <div class="article_toc_container card">
+        <div class="article_toc">
+          <div class="toc_header">Table of contents</div>
+          <div class="toc_body">
+              {{ .TableOfContents }}
+          </div>
         </div>
       </div>
       {{ end }}
