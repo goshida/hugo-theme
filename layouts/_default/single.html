@@ -2,7 +2,7 @@
 
 <div class="single_container content_area">
   <div class="single_main_container">
-    <main class="article_main card">
+    <main class="article_main_container card">
       <article class="article_container">
         <header class="article_header">
           <h1 class="article_title">
@@ -15,21 +15,23 @@
       </article>
     </main>
 
-    <aside class="article_side">
+    <aside class="article_aside_container">
       <div class="article_meta_container card">
-        <dl class="article_meta">
-          <div class="article_meta_item title">
-            <dt class="article_meta_key">
-              <span>Title</span>
-            </dt>
-            <dd class="article_meta_value">
-              {{ .Title }}
-            </dd>
+        <dl class="article_meta_list">
+          <div class="article_meta_group title">
+            <div class="article_meta_item title">
+              <dt class="article_meta_key">
+                <span>Title</span>
+              </dt>
+              <dd class="article_meta_value">
+                {{ .Title }}
+              </dd>
+            </div>
           </div>
 
           <div class="article_meta_group timestamp">
             <div class="article_meta_item timestamp">
-              <dt class="article_meta_key has_icon_before icon_calendar">
+              <dt class="article_meta_key has_icon icon_calendar">
                 <span>Published</span>
               </dt>
               <dd class="article_meta_value">
@@ -39,7 +41,7 @@
 
             {{ if ne .Date .Lastmod }}
             <div class="article_meta_item timestamp">
-              <dt class="article_meta_key has_icon_before icon_reload">
+              <dt class="article_meta_key has_icon icon_reload">
                 <span>Modified</span>
               </dt>
               <dd class="article_meta_value">
@@ -53,7 +55,7 @@
           <div class="article_meta_group taxonomy">
             {{ with .GetTerms "categories" }}
             <div class="article_meta_item taxonomy">
-              <dt class="article_meta_key has_icon_before icon_category">
+              <dt class="article_meta_key has_icon icon_category">
                 <span>Categolies</span>
               </dt>
               <dd class="article_meta_value">
@@ -70,7 +72,7 @@
 
             {{ with .GetTerms "tags" }}
             <div class="article_meta_item taxonomy">
-              <dt class="article_meta_key has_icon_before icon_tag">
+              <dt class="article_meta_key has_icon icon_tag">
                 <span>Tags</span>
               </dt>
               <dd class="article_meta_value">

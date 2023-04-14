@@ -2,13 +2,15 @@
 
 <div class="homepage_container content_area">
   <div class="homepage_main_container">
-    <aside class="recent_main card">
+    <main class="home_main_container">
+    </main>
+  </div>
+
+  <div class="homepage_sub_container">
+    <aside class="recent_container card">
       <header class="recent_header">
-        <h1 class="list_title">Recent</h1>
+        <span>Recent</span>
       </header>
-      <section class="list_body">
-        {{ .Content }}
-      </section>
 
       <ul class="mini_page_list">
         {{ $paginator := .Paginate (where .Site.RegularPages "Section" "in" .Site.Params.mainSections ) }}
