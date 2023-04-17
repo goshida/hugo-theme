@@ -1,8 +1,31 @@
-<ul>
-    {{ range .Pages }}
-        <li>
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-            {{ .Params.wikipedia }}
+{{ define "main" }}
+
+<div class="homepage_container content_area">
+  <div class="homepage_main_container">
+    <main class="home_main_container">
+    </main>
+  </div>
+
+  <div class="homepage_sub_container">
+    <aside class="recent_container card">
+      <header class="recent_header">
+        <span>Recent</span>
+      </header>
+
+      <ul class="mini_page_list">
+        {{ $paginator := .Paginate (where .Site.RegularPages "Section" "in" .Site.Params.mainSections ) }}
+        {{ range $paginator.Pages }}
+        <li class="mini_page_list_item">
+          <div class="page_timestamp">
+            <time class="published_date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02"  }}</time>
+          </div>
+          <a class="page_title" href="{{ .Permalink }}">{{ .Title }}</a>
         </li>
-    {{ end }}
-</ul>
+        {{ end }}
+      </ul>
+      {{ template "_internal/pagination.html" . }}
+    </aside>
+  </div>
+</div>
+
+{{ end }}
