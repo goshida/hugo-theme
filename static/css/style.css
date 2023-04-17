@@ -1,8 +1,11 @@
 /* Variables definition */
 
-.site_container {
-  --body_font-family: sans-serif;
+body {
+  --body_font-family: "YakuHanJPs","Segoe UI","-apple-system","BlinkMacSystemFont","Roboto", "Hiragino Sans","Noto Sans CJK JP", sans-serif;
+  --pre_font-family: monospace;
+}
 
+.site_container {
   --container_box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6);
 }
 
@@ -54,7 +57,6 @@
   --th_background-color: #F0F0F0;
   --pre_color: #FFFFFF;
   --pre_background-color: #202020;
-  --pre_font-family: monospace;
   --summary_background-color_selected: #F0F0F0;
   --figcaption_color: #808080;
 }
@@ -144,11 +146,12 @@ h6 {
 }
 
 code {
-  padding: 2px 4px;
-  border: solid 1px #A0A0A0;
+  padding: 0px 4px;
+  border: solid 1px #C0C0C0;
   border-radius: 4px;
   background-color: var(--code_background-color);
   font-family: inherit;
+  font-size: 0.9em;
 }
 
 blockquote {
@@ -305,11 +308,12 @@ html, body, .site_container {
 }
 
 .taxonomy_button {
-  padding: 2px 8px;
+  padding: 0px 8px;
   border: solid 1px #C0C0C0;
   border-radius: 6px;
   background-color: var(--taxonomy-button_background-color);
   color: var(--taxonomy-button_color);
+  line-height: 1.8em;
 }
 
 .taxonomy_button:hover {
@@ -444,11 +448,15 @@ html, body, .site_container {
 
 .article_body {
   padding: 16px;
-  line-height: 1.4em;
+  line-height: 1.6em;
 }
 
 .article_aside_container {
   flex: 0 0 320px;
+}
+
+.article_meta_container {
+  font-size: 0.9em;
 }
 
 .article_meta_list {
@@ -520,6 +528,7 @@ html, body, .site_container {
 .article_toc_container {
   position: sticky;
   top: 12px;
+  font-size: 0.9em;
 }
 
 .article_toc {
@@ -529,6 +538,7 @@ html, body, .site_container {
 
 .toc_header {
   padding: 8px 8px;
+  font-size: 1em;
   font-size: 1.1em;
 }
 
@@ -666,8 +676,9 @@ html, body, .site_container {
 
 .pagination > li > a {
   display: inline-block;
-  padding: 8px 8px;
-  box-shadow: var(--pagination-button_box-shadow);
+  padding: 6px 6px;
+  border: solid 1px #A0A0A0;
+  border-radius: 4px;
   font-size: 1em;
   text-decoration: none;
   background-color: var(--pagination-button_background-color);
