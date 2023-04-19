@@ -1,15 +1,15 @@
 {{ define "main" }}
 
 <div class="single_container content_area">
-  <div class="single_main_container">
+  <div class="single_main_container" itemscope itemtype="https://schema.org/BlogPosting">
     <main class="article_main_container card">
       <article class="article_container">
         <header class="article_header">
-          <h1 class="article_title">
+          <h1 class="article_title" itemprop="headline">
             {{ .Title }}
           </h1>
         </header>
-        <section class="article_body">
+        <section class="article_body" itemprop="articleBody">
           {{ .Content }}
         </section>
       </article>
