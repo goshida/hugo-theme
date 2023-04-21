@@ -69,6 +69,7 @@ html {
 }
 
 body {
+  -webkit-text-size-adjust: 100%;
   overflow-y: scroll;
   margin: 0px;
   font-family: var(--body_font-family);
