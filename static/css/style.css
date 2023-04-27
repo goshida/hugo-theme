@@ -27,6 +27,8 @@ body {
 
   --a_color: #4488FF;
   --a_color_selected: #FF8844;
+  --img_box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6);
+  --img_box-shadow_selected: 0px 0px 4px rgba(0, 0, 0, 0.8);
 
   --taxonomy-button_color: #000000;
   --taxonomy-button_background-color: #FFFFFF;
@@ -244,6 +246,15 @@ summary:hover {
 figure {
   margin: 1em;
 }
+
+a > img {
+  box-shadow: var(--img_box-shadow);
+}
+
+a > img:hover {
+  box-shadow: var(--img_box-shadow_selected);
+}
+
 
 figcaption {
   font-size: 0.9em;
