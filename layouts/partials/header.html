@@ -10,14 +10,30 @@
       </div>
       {{ end }}
     </div>
-    <nav class="site_navigation_container">
-      <ul class="navigation_list">
-        {{ range .Site.Menus.main }}
-        <li class="navigation_item">
-          <a href="{{ .URL }}" >{{ .Name }}</a>
-        </li>
-        {{ end }}
-      </ul>
-    </nav>
+    <div class="menu_container">
+      <nav class="site_navigation_container">
+        <ul class="navigation_list">
+          {{ range .Site.Menus.main }}
+          <li class="navigation_item">
+            <a href="{{ .URL }}" >{{ .Name }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </nav>
+      {{ with .Site.Params.social }}
+      <div class="social_container">
+        <ul class="social_list">
+          {{ with .github }}
+          <li class="social_item">
+            <a class="is_icon icon_github" href="https://github.com/{{ . }}"></a>
+          </li>
+          {{ end }}
+          <li class="social_item">
+            <a class="is_icon icon_rss" href="{{ .Site.BaseURL }}/index.xml"></a>
+          </li>
+        </ul>
+      </div>
+      {{ end }}
+    </div>
   </div>
 </div>

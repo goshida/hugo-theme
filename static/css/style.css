@@ -333,12 +333,23 @@ html, body, .site_container {
   color: var(--taxonomy-button_color_selected);
 }
 
-.has_icon:before {
+.has_icon::before {
   display: inline-block;
   content: "";
   width: 1em;
   height: 1em;
   margin-right: 0.5em;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.is_icon::before {
+  display: inline-block;
+  content: "";
+  width: 1em;
+  height: 1em;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .icon_calendar::before {
@@ -357,6 +368,13 @@ html, body, .site_container {
   background-image: url("/images/icon_tag.svg");
 }
 
+.icon_github::before {
+  background-image: url("/images/icon_github.svg");
+}
+
+.icon_rss::before {
+  background-image: url("/images/icon_rss.svg");
+}
 
 /* Header */
 
@@ -381,6 +399,11 @@ html, body, .site_container {
   color: var(--site-logo_color);
 }
 
+.menu_container {
+  display: flex;
+  flex-direction: row;
+}
+
 .site_tagline {
   display: inline-block;
   font-size: 1rem;
@@ -388,21 +411,22 @@ html, body, .site_container {
 }
 
 .site_navigation_container {
+  flex: 0 1 auto;
   text-align: center;
+  border-right: solid 1px #C0C0C0;
 }
 
 .navigation_list {
   display: flex;
   flex-direction: row;
   justify-content: start;
-  margin: 4px;
-  padding: 4px;
+  margin: 0px;
+  padding: 0px 12px;
   list-style:none;
 }
 
 .navigation_item {
-  padding: 0px 10px;
-  border-right: solid 1px #C0C0C0;
+  padding: 4px 8px;
 }
 
 .navigation_item:last-of-type {
@@ -410,9 +434,32 @@ html, body, .site_container {
 }
 
 .navigation_item > a {
-  padding: 0px 2px;
+  padding: 4px;
   font-size: 1.4rem;
   color: var(--site-navigation_color);
+}
+
+.social_container {
+  flex: 0 1 auto;
+  text-align: center;
+}
+
+.social_list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px 8px;
+  list-style: none;
+}
+
+.social_item {
+  padding: 4px;
+}
+
+.social_item > a {
+  padding: 4px;
+  font-size: 1.4rem;
 }
 
 
@@ -824,6 +871,19 @@ html, body, .site_container {
 /* Responsive */
 
 @media screen and ( max-width: 1000px ) {
+
+  /* Header */
+  .menu_container {
+    flex-direction: column;
+  }
+
+  .site_navigation_container {
+    border-right: none;
+    border-bottom: solid 1px #C0C0C0;
+  }
+
+  /* Main */
+
   .article_main_container {
     max-width: 100%;
   }
