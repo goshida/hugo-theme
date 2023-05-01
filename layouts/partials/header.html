@@ -1,14 +1,20 @@
 <div class="header_container content_area">
   <div class="header_body">
-    <div class="logo_container">
-      <div class="site_logo">
-        <a href="{{ .Site.BaseURL }}">{{ .Site.Params.Logo.Title | default .Site.Title}}</a>
+    <input type="checkbox" class="menu_trigger" id="menu_trigger">
+    <div class="header_main_container">
+      <div class="logo_container">
+        <div class="site_logo">
+          <a href="{{ .Site.BaseURL }}">{{ .Site.Params.Logo.Title | default .Site.Title}}</a>
+        </div>
+        {{ with .Site.Params.Logo.Tagline }}
+        <div class="site_tagline">
+          {{ . }}
+        </div>
+        {{ end }}
       </div>
-      {{ with .Site.Params.Logo.Tagline }}
-      <div class="site_tagline">
-        {{ . }}
+      <div class="menu_button_container">
+        <label class="menu_button is_icon icon_menu" for="menu_trigger"></label>
       </div>
-      {{ end }}
     </div>
     <div class="menu_container">
       <nav class="site_navigation_container">
