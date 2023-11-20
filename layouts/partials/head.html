@@ -7,7 +7,7 @@
 
 <title>{{ block "title" . }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
 
-{{ with .Site.Params.author }}
+{{ with .Site.Params.author.name }}
   <meta name="author" content="{{ . }}">
 {{ end }}
 
