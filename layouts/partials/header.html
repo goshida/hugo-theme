@@ -31,11 +31,11 @@
         <ul class="social_list">
           {{ with .github }}
           <li class="social_item">
-            <a class="is_icon icon_github" href="https://github.com/{{ . }}"></a>
+            <a class="is_icon icon_github" href="https://github.com/{{ . }}" aria-label="Link to GitHub" ></a>
           </li>
           {{ end }}
           <li class="social_item">
-            <a class="is_icon icon_rss" href="{{ .Site.BaseURL }}/index.xml"></a>
+            <a class="is_icon icon_rss" href="{{ .Site.BaseURL }}/index.xml" aria-label="Link to RSS Feed" ></a>
           </li>
         </ul>
       </div>
