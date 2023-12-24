@@ -20,6 +20,8 @@ body {
   --footer_background-color: #404040;
   --footer-text_color: #D6D6D6;
   --footer-link_color: #FFFFFF;
+  --footer-link_text-decoration-color: #808080;
+  --footer-link_text-decoration-color_active: #FFFFFF;
 }
 
 .site_main_container {
@@ -63,6 +65,9 @@ body {
   --figcaption_color: #585858;
 }
 
+.list_container {
+  --page_timestamps_color: #585858;
+}
 
 /* HTML tag*/
 
@@ -519,12 +524,18 @@ html, body, .site_container {
 
 .footer_body {
   padding: 8px 16px;
-  color: var(--footer-text_color);
   font-size: 0.8rem;
+  color: var(--footer-text_color);
 }
 
 .footer_body > a {
   color: var(--footer-link_color);
+  text-decoration: underline;
+  text-decoration-color: var(--footer-link_text-decoration-color);
+}
+
+.footer_body > a:hover {
+  text-decoration-color: var(--footer-link_text-decoration-color_active);
 }
 
 
@@ -717,7 +728,7 @@ html, body, .site_container {
   flex-direction: row;
   margin: 4px 4px;
   font-size: 0.9em;
-  color: #606060;
+  color: var(--page_timestamps_color);
 }
 
 .page_timestamps > time {
