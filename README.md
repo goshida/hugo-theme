@@ -12,7 +12,7 @@ git submodule add https://github.com/goshida/hugo-theme.git themes/hugo-theme
 ```
 and configure in config.toml
 
-```toml
+```
 theme = hugo-theme
 ```
 
