@@ -4,9 +4,9 @@
     <div class="header_main_container">
       <div class="logo_container">
         <div class="site_logo">
-          <a href="{{ .Site.BaseURL }}">{{ .Site.Params.Logo.Title | default .Site.Title}}</a>
+          <a href="{{ site.BaseURL }}">{{ site.Params.Logo.Title | default site.Title}}</a>
         </div>
-        {{ with .Site.Params.Logo.Tagline }}
+        {{ with site.Params.Logo.Tagline }}
         <div class="site_tagline">
           {{ . }}
         </div>
@@ -19,14 +19,14 @@
     <div class="menu_container">
       <nav class="site_navigation_container">
         <ul class="navigation_list">
-          {{ range .Site.Menus.main }}
+          {{ range site.Menus.main }}
           <li class="navigation_item">
             <a href="{{ .URL }}" >{{ .Name }}</a>
           </li>
           {{ end }}
         </ul>
       </nav>
-      {{ with .Site.Params.social }}
+      {{ with site.Params.social }}
       <div class="social_container">
         <ul class="social_list">
           {{ with .github }}
@@ -35,7 +35,7 @@
           </li>
           {{ end }}
           <li class="social_item">
-            <a class="is_icon icon_rss" href="{{ .Site.BaseURL }}/index.xml" aria-label="Link to RSS Feed" ></a>
+            <a class="is_icon icon_rss" href="{{ site.BaseURL }}/index.xml" aria-label="Link to RSS Feed" ></a>
           </li>
         </ul>
       </div>

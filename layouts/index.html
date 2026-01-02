@@ -13,7 +13,7 @@
       </header>
 
       <ul class="mini_page_list">
-        {{ $paginator := .Paginate (where .Site.RegularPages "Section" "in" .Site.Params.mainSections ) }}
+        {{ $paginator := .Paginate (where site.RegularPages "Section" "in" site.Params.mainSections ) }}
         {{ range $paginator.Pages }}
         <li class="mini_page_list_item" itemscope itemtype="https://schema.org/BlogPosting">
           <div class="page_timestamp">

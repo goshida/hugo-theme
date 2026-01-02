@@ -11,10 +11,9 @@
       </section>
 
       <ul class="term_list">
-        {{- $plural := .Data.Plural }}
-        {{- range $index, $term := .Data.Terms.Alphabetical }}
+        {{- range .Data.Terms.Alphabetical }}
         <li class="term_list_item">
-          <a class="term_name"href="{{ $.Site.LanguagePrefix }}/{{ $plural }}/{{ $term.Name | urlize }}">{{ $term.Name }}</a> ({{ $term.Count }})
+          <a class="term_name" href="{{ .Page.RelPermalink }}">{{ .Name }}</a> ({{ .Count }})
         </li>
         {{- end }}
       </ul>

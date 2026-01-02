@@ -5,14 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
 
-<title>{{ block "title" . }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
+<title>{{ block "title" . }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}{{ end }}</title>
 
-{{ with .Site.Params.author.name }}
+{{ with site.Params.author.name }}
   <meta name="author" content="{{ . }}">
 {{ end }}
 
 {{ if .IsHome }}
-  {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+  {{ with site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 {{ else }}
   {{ with .Summary }}<meta name="description" content="{{ . }}">{{ end }}
   {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
@@ -26,9 +26,9 @@
 
 {{ template "_internal/opengraph.html" . }}
 {{ with .OutputFormats.Get "rss" -}}
-  {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
 {{ end -}}
 
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/style.css">
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/custom.css">
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
 

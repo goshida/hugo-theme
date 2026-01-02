@@ -1,9 +1,9 @@
 <div class="footer_container content_area">
   <div class="footer_body">
-    {{ with .Site.Copyright }}
+    {{ with site.Copyright }}
       {{ . }}
     {{ else }}
-      &copy; {{ now.Format "2006" }} {{ .Site.Author.name | default .Site.Title }}.
+      &copy; {{ now.Format "2006" }} {{ site.Author.name | default site.Title }}.
     {{ end }}
     Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and 
     <a href="https://github.com/goshida/hugo-theme/" rel="nofollow noopener" target="_blank">goshida/hugo-theme</a>.
