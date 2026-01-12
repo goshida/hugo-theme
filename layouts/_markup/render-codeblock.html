@@ -1,0 +1,12 @@
+<div>
+  {{- $title := .Attributes.title -}} {{- with $title }}
+  <div class="codeblock-title">{{ . }}</div>
+  <div class="codeblock-content">
+    {{- highlight ($.Inner | safeHTML) $.Type $.Options }}
+  </div>
+  {{ else }}
+  <div class="codeblock">
+    {{- highlight (.Inner | safeHTML) .Type .Options }}
+  </div>
+  {{ end }}
+</div>
