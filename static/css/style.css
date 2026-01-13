@@ -281,6 +281,13 @@ a > img:hover {
   box-shadow: var(--img_box-shadow_selected);
 }
 
+sup {
+  line-height: 0;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+  font-size: 0.8em;
+}
 
 figcaption {
   font-size: 0.9em;
